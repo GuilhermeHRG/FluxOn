@@ -111,6 +111,7 @@ export function ExpenseForm({ expense, categories, paymentMethods, onSubmit, onC
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Ex: Supermercado, Uber, Internet…"
             required
+            autoFocus
             rows={3}
           />
         </div>

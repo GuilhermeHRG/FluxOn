@@ -81,7 +81,7 @@ export function PaymentMethodForm({ method, onClose, onSuccess }: PaymentMethodF
   return (
     <Card>
       <CardHeader>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between ">
           <div>
             <CardTitle>{method ? "Editar" : "Nova"} Forma de Pagamento</CardTitle>
             <CardDescription>
@@ -100,6 +100,7 @@ export function PaymentMethodForm({ method, onClose, onSuccess }: PaymentMethodF
               <Label htmlFor="name">Nome</Label>
               <Input
                 id="name"
+                autoFocus
                 placeholder="Ex: Cartão Nubank, PIX, Dinheiro..."
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -109,7 +110,10 @@ export function PaymentMethodForm({ method, onClose, onSuccess }: PaymentMethodF
 
             <div className="space-y-2">
               <Label htmlFor="type">Tipo</Label>
-              <Select value={formData.type} onValueChange={(value) => setFormData({ ...formData, type: value })}>
+              
+              <Select value={formData.type} onValueChange={(value) => setFormData({ ...formData, 
+              //@ts-ignore
+                type: value })}>
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>

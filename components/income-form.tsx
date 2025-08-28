@@ -58,7 +58,7 @@ export function IncomeForm({ onSubmit, onCancel }: Props) {
     >
       <div className="grid gap-2">
         <Label>Valor (R$)</Label>
-        <Input inputMode="decimal" value={amount} onChange={(e) => setAmount(e.target.value)} required />
+        <Input inputMode="decimal" autoFocus value={amount} onChange={(e) => setAmount(e.target.value)} required />
       </div>
 
       <div className="grid gap-2">

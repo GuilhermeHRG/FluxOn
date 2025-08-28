@@ -95,6 +95,7 @@ export function CategoryForm({ category, onSubmit, onCancel }: CategoryFormProps
             onChange={(e) => setName(e.target.value)}
             placeholder="Ex: Alimentação, Transporte..."
             required
+            autoFocus
           />
         </div>
 

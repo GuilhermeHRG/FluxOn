@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -10,6 +9,7 @@ import { Label } from "@/components/ui/label"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { useAuth } from "@/hooks/use-auth"
 import { Eye, EyeOff, Loader2 } from "lucide-react"
+import bg from "@/public/bg.jpg"
 
 export function AuthForm() {
   const [isLogin, setIsLogin] = useState(true)
@@ -60,10 +60,11 @@ export function AuthForm() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <Card className="w-full max-w-md">
+    <div style={{ backgroundImage: `url(${bg})` }}
+      className="min-h-screen  bg-cover bg-center flex items-center justify-center p-4">
+      <Card className="w-full max-w-md bg-white/60 backdrop-blur-xs">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-bold">Controle de Gastos</CardTitle>
+          <CardTitle className="text-2xl font-bold">FluxOn</CardTitle>
           <CardDescription>
             {isLogin ? "Faça login para acessar suas finanças" : "Crie sua conta para começar"}
           </CardDescription>
@@ -80,6 +81,7 @@ export function AuthForm() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 disabled={loading}
+                
               />
             </div>
 
@@ -123,7 +125,7 @@ export function AuthForm() {
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-sm text-muted-foreground">{isLogin ? "Não tem uma conta?" : "Já tem uma conta?"}</p>
+            <p className="text-sm text-gray-800">{isLogin ? "Não tem uma conta?" : "Já tem uma conta?"}</p>
             <Button
               variant="link"
               onClick={() => {

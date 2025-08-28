@@ -94,7 +94,7 @@ export function CategoryCard({ category, onEdit, onDelete }: CategoryCardProps) 
       <CardContent>
         <div className="space-y-2">
           <div className="flex justify-between items-center">
-            <span className="text-sm text-muted-foreground">Total gasto:</span>
+            <span className="text-sm text-gray-800">Total gasto:</span>
             <span className="font-bold text-destructive">
               R$ {category.totalSpent.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
             </span>

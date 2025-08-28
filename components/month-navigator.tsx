@@ -59,7 +59,7 @@ export function MonthNavigator({ currentMonth, onMonthChange }: MonthNavigatorPr
   return (
     <div
       className="
-        bg-gray-200/40 border  rounded-lg p-3 md:p-4 mb-6 capitalize
+        bg-gray-100/20 border  rounded-lg p-3 md:p-4 mb-6 capitalize
         flex flex-col gap-3
         md:flex-row md:items-center md:justify-between
       "
@@ -70,7 +70,7 @@ export function MonthNavigator({ currentMonth, onMonthChange }: MonthNavigatorPr
           variant="outline"
           size="sm"
           onClick={() => navigateMonth("prev")}
-          className="gap-2 flex-1 md:flex-none hover:bg-gray-500 hover:text-gray-50 transition-all"
+          className="gap-2 flex-1 md:flex-none hover:bg-gray-500 text-gray-50 transition-all"
           aria-label="Mês anterior"
         >
           <ChevronLeft className="h-4 w-4" />
@@ -81,7 +81,7 @@ export function MonthNavigator({ currentMonth, onMonthChange }: MonthNavigatorPr
           variant="outline"
           size="sm"
           onClick={() => navigateMonth("next")}
-          className="gap-2 flex-1 md:flex-none hover:bg-gray-500 hover:text-gray-50 transition-all"
+          className="gap-2 flex-1 md:flex-none hover:bg-gray-500 text-gray-50 transition-all"
           aria-label="Próximo mês"
         >
           <span className="hidden xs:inline">Próximo</span>
@@ -92,10 +92,10 @@ export function MonthNavigator({ currentMonth, onMonthChange }: MonthNavigatorPr
       {/* Linha 2: título + Hoje */}
       <div className="flex items-center justify-between gap-2">
         <div className="text-center md:text-left flex-1">
-          <h2 className="font-bold text-lg md:text-xl text-foreground leading-tight">
+          <h2 className="font-bold text-lg md:text-xl text-gray-50 leading-tight">
             {formatMonthDisplay(selectedMonth)}
           </h2>
-          <p className="text-xs md:text-sm text-gray-800">
+          <p className="text-xs md:text-sm text-gray-50">
             {isCurrentMonth ? "Mês atual" : "Navegando no histórico"}
           </p>
         </div>
