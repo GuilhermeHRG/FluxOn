@@ -108,7 +108,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between max-sm:justify-center">
             <div>
-              <h1 className="text-xl font-bold max-sm:hidden">Controle de Gastos</h1>
+              <h1 className="text-xl font-bold max-sm:hidden">FluxOn</h1>
               <p className="text-sm max-sm:hidden">Gerencie suas finanças pessoais</p>
             </div>
             <div className="flex items-center gap-2">

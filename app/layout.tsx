@@ -6,9 +6,9 @@ import { AuthProvider } from "@/hooks/use-auth"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Controle de Gastos",
+  title: "FluxOn",
   description: "App profissional para controle de gastos pessoais",
-  generator: "v0.app",
+  generator: "By Guilherme Guelere",
 }
 
 export default function RootLayout({
