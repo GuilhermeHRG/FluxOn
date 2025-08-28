@@ -114,8 +114,8 @@ export default function SalaryPage() {
                 </Button>
               </Link>
               <div>
-                <h1 className="text-xl font-bold text-gray-50">Configuração de Salário</h1>
-                <p className="text-xs text-gray-50">Gerencie seu salário e metas de gastos</p>
+                <h1 className="text-xl font-bold text-gray-50 max-sm:hidden">Configuração de Salário</h1>
+                <p className="text-xs text-gray-50 max-sm:hidden">Gerencie seu salário e metas de gastos</p>
               </div>
             </div>
             <Button

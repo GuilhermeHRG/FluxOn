@@ -118,11 +118,36 @@ export default function ExpensesPage() {
           </div>
         </div>
       </header>
-
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-2 py-8">
+{/* Expense Form */}
+        {showForm && (
+          <Card className="mb-8 ">
+            <CardHeader>
+              <CardTitle>{editingExpense ? "Editar Despesa" : "Nova Despesa"}</CardTitle>
+              <CardDescription>
+                {editingExpense ? "Modifique os dados da despesa" : "Registre uma nova despesa"}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ExpenseForm
+                expense={editingExpense}
+                categories={categories}
+                paymentMethods={paymentMethods}
+                onSubmit={editingExpense ? handleEditExpense : handleAddExpense}
+                onCancel={() => {
+                  setShowForm(false)
+                  setEditingExpense(null)
+                }}
+              />
+            </CardContent>
+          </Card>
+        )}
+
         {/* Month Navigator */}
         <MonthNavigator currentMonth={selectedMonth} onMonthChange={setSelectedMonth} />
+
+        
 
         {/* Summary Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -169,29 +194,7 @@ export default function ExpensesPage() {
           </Card>
         </div>
 
-        {/* Expense Form */}
-        {showForm && (
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle>{editingExpense ? "Editar Despesa" : "Nova Despesa"}</CardTitle>
-              <CardDescription>
-                {editingExpense ? "Modifique os dados da despesa" : "Registre uma nova despesa"}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ExpenseForm
-                expense={editingExpense}
-                categories={categories}
-                paymentMethods={paymentMethods}
-                onSubmit={editingExpense ? handleEditExpense : handleAddExpense}
-                onCancel={() => {
-                  setShowForm(false)
-                  setEditingExpense(null)
-                }}
-              />
-            </CardContent>
-          </Card>
-        )}
+        
 
         {/* Filters */}
         <Card className="mb-8">

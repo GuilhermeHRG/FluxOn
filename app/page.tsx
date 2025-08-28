@@ -104,7 +104,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border bg-[#202224] text-gray-50">
+      <header className="border-b border-border bg-[#202224]/60 text-gray-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between max-sm:justify-center">
             <div>

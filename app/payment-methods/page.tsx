@@ -45,9 +45,9 @@ export default function PaymentMethodsPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border bg-card">
+      <header className="border-b border-border bg-[#202224] text-gray-50">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between max-sm:justify-around" >
             <div className="flex items-center gap-4">
               <Link href="/">
                 <Button variant="ghost" size="sm" className="gap-2">
@@ -56,13 +56,13 @@ export default function PaymentMethodsPage() {
                 </Button>
               </Link>
               <div>
-                <h1 className="text-2xl font-bold text-foreground">Formas de Pagamento</h1>
-                <p className="text-sm text-muted-foreground">Gerencie suas formas de pagamento</p>
+                <h1 className="text-xl font-bold max-sm:font-semibold max-sm:text-md ">Formas de Pagamento</h1>
+                <p className="text-sm max-sm:hidden">Gerencie suas formas de pagamento</p>
               </div>
             </div>
             <Button onClick={() => setShowForm(true)} className="gap-2">
               <Plus className="h-4 w-4" />
-              Nova Forma
+
             </Button>
           </div>
         </div>

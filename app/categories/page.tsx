@@ -89,11 +89,11 @@ export default function CategoriesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen ">
       {/* Header */}
-      <header className="border-b border-border bg-card">
+      <header className="border-b border-border bg-[#202224] text-gray-50">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between max-sm:justify-around">
             <div className="flex items-center gap-4">
               <Link href="/">
                 <Button variant="ghost" size="sm" className="gap-2">
@@ -102,8 +102,8 @@ export default function CategoriesPage() {
                 </Button>
               </Link>
               <div>
-                <h1 className="text-2xl font-bold text-foreground">Categorias</h1>
-                <p className="text-sm text-muted-foreground">Gerencie suas categorias de gastos</p>
+                <h1 className="text-xl font-bold  ">Categorias</h1>
+                <p className="text-sm  max-sm:hidden">Gerencie suas categorias de gastos</p>
               </div>
             </div>
             <Button
@@ -114,7 +114,7 @@ export default function CategoriesPage() {
               className="gap-2"
             >
               <Plus className="h-4 w-4" />
-              Nova Categoria
+              Nova
             </Button>
           </div>
         </div>
@@ -122,6 +122,29 @@ export default function CategoriesPage() {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
+        {/* Category Form */}
+        {showForm && (
+          <Card className="mb-8">
+            <CardHeader>
+              <CardTitle>{editingCategory ? "Editar Categoria" : "Nova Categoria"}</CardTitle>
+              <CardDescription>
+                {editingCategory
+                  ? "Modifique os dados da categoria"
+                  : "Crie uma nova categoria para organizar seus gastos"}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <CategoryForm
+                category={editingCategory}
+                onSubmit={editingCategory ? handleEditCategory : handleAddCategory}
+                onCancel={() => {
+                  setShowForm(false)
+                  setEditingCategory(null)
+                }}
+              />
+            </CardContent>
+          </Card>
+        )}
         {/* Summary */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <Card>
@@ -134,8 +157,8 @@ export default function CategoriesPage() {
           </Card>
 
           <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium">Total Gasto</CardTitle>
+            <CardHeader className="pb-2 text-gray-800">
+              <CardTitle className="text-sm font-medium ">Total Gasto</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-destructive">
@@ -162,32 +185,10 @@ export default function CategoriesPage() {
           </Card>
         </div>
 
-        {/* Category Form */}
-        {showForm && (
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle>{editingCategory ? "Editar Categoria" : "Nova Categoria"}</CardTitle>
-              <CardDescription>
-                {editingCategory
-                  ? "Modifique os dados da categoria"
-                  : "Crie uma nova categoria para organizar seus gastos"}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <CategoryForm
-                category={editingCategory}
-                onSubmit={editingCategory ? handleEditCategory : handleAddCategory}
-                onCancel={() => {
-                  setShowForm(false)
-                  setEditingCategory(null)
-                }}
-              />
-            </CardContent>
-          </Card>
-        )}
+        
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 capitalize">
           {categories.map((category) => {
             const stats = getCategoryStats(category.id)
             return (
@@ -199,6 +200,7 @@ export default function CategoriesPage() {
                   transactionCount: stats.transactionCount,
                 }}
                 onEdit={(cat) => {
+                  //@ts-ignore
                   setEditingCategory(cat)
                   setShowForm(true)
                 }}

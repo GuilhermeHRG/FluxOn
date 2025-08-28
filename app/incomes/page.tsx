@@ -102,6 +102,19 @@ export default function IncomesPage() {
 
             {/* Main */}
             <main className="container mx-auto px-4 py-8">
+                {/* Income Form */}
+                {showForm && (
+                    <Card className="mb-8">
+                        <CardHeader>
+                            <CardTitle>Nova Entrada</CardTitle>
+                            <CardDescription>Registre uma nova receita</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <IncomeForm onSubmit={handleAddIncome} onCancel={() => setShowForm(false)} />
+                        </CardContent>
+                    </Card>
+                )}
+
                 {/* Month Navigator */}
                 <MonthNavigator currentMonth={selectedMonth} onMonthChange={setSelectedMonth} />
 
@@ -147,19 +160,7 @@ export default function IncomesPage() {
                     </Card>
                 </div>
 
-                {/* Income Form */}
-                {showForm && (
-                    <Card className="mb-8">
-                        <CardHeader>
-                            <CardTitle>Nova Entrada</CardTitle>
-                            <CardDescription>Registre uma nova receita</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <IncomeForm onSubmit={handleAddIncome} onCancel={() => setShowForm(false)} />
-                        </CardContent>
-                    </Card>
-                )}
-
+                
                 {/* Filtros */}
                 <Card className="mb-8">
                     <CardHeader>
