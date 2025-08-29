@@ -35,7 +35,7 @@ export function ExpenseForm({ expense, categories, paymentMethods, onSubmit, onC
 
   // ---- Recorrência ----
   const [recMode, setRecMode] = useState<RecurrenceMode>("none")
-  const [installments, setInstallments] = useState<string>("2") // padrão 2x para parceladas
+  const [installments, setInstallments] = useState<string>("1") // padrão 2x para parceladas
   // startMonth padrão = mês da data escolhida (YYYY-MM)
   const defaultStartMonth = useMemo(() => date.slice(0, 7), [date])
   const [startMonth, setStartMonth] = useState<string>(defaultStartMonth)
@@ -211,7 +211,7 @@ export function ExpenseForm({ expense, categories, paymentMethods, onSubmit, onC
               <SelectValue placeholder="Nenhuma" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="none">Nenhuma</SelectItem>
+              <SelectItem value="1">A vista</SelectItem>
               <SelectItem value="installments">Parcelada</SelectItem>
               <SelectItem value="fixed">Fixa (todo mês)</SelectItem>
             </SelectContent>
