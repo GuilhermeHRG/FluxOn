@@ -59,11 +59,11 @@ function expandForMonth(
   for (const item of items) {
     const d = toDateObj(item.date)
     const baseMonth = item.recurrence?.startMonth ?? monthFromDate(d)
-    const mode = item.recurrence?.mode ?? "none"
+    const mode = item.recurrence?.mode ?? "1"
     const active = item.recurrence?.active ?? true
     if (!active) continue
 
-    if (mode === "none") {
+    if (mode === "1") {
       if (monthFromDate(d) === targetMonth) {
         out.push({ ...item, _virtualId: item.id, _virtualDate: d })
       }

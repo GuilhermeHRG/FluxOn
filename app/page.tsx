@@ -22,7 +22,7 @@ export default function HomePage() {
   function getCurrentMonthLocal() {
     const now = new Date()
     const year = now.getFullYear()
-    const month = String(now.getMonth() + 1).padStart(2, "0") 
+    const month = String(now.getMonth() + 1).padStart(2, "0")
     return `${year}-${month}`
   }
 
@@ -243,9 +243,9 @@ export default function HomePage() {
             </CardHeader>
             <CardContent>
               {/* <Link href="/reports"> */}
-                <Button variant="outline" className="w-full bg-transparent cursor-not-allowed hover:bg-transparent">
-              <p className="text-xs text-orange-500 text-end font-semibold ">Em breve!</p>
-                </Button>
+              <Button variant="outline" className="w-full bg-transparent cursor-not-allowed hover:bg-transparent">
+                <p className="text-xs text-orange-500 text-end font-semibold ">Em breve!</p>
+              </Button>
               {/* </Link> */}
             </CardContent>
           </Card>
